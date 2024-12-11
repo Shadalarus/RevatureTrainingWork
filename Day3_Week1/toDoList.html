@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>To do List</title>
+    <script>
+        function addToList(){
+            let newElement = document.createElement("li");
+            let inText = document.getElementById("text1");
+            newElement.innerHTML = inText.value;
+            let insertLocation = document.getElementById("myUL");
+            insertLocation.append(newElement);
+            inText.value = "";
+        }
+        function deleteFromList(){
+            let listItems = document.querySelectorAll("li");
+            let deleteText = document.getElementById("text1");
+            var i;
+            for(i=0;i<listItems.length;i++){
+                if(listItems[i].innerHTML == deleteText.value){
+                    listItems[i].remove();
+                }
+            }
+            deleteText.value = "";
+        }
+        function markComplete(){
+            let listItems = document.querySelectorAll("li");
+            let completeText = document.getElementById("text1");
+            var i;
+            for(i=0;i<listItems.length;i++){
+                if(listItems[i].innerHTML == completeText.value){
+                    listItems[i].style.textDecoration = "line-through";
+                }
+            }
+            completeText.value = "";
+        }
+        function changeText(){
+            let listItems = document.querySelectorAll("li");
+            let oldText = document.getElementById("oldtxt");
+            let newText = document.getElementById("newtxt");
+            var i;
+            for(i=0;i<listItems.length;i++){
+                if(listItems[i].innerHTML == oldText.value){
+                    listItems[i].innerHTML = newText.value;
+                }
+            }
+            oldText.value = "";
+            newText.value = "";
+        }
+    </script>
+</head>
+<body>
+    <h1>To Do List</h1>
+    <input type="text" id="text1" placeholder="Enter text to add/delete"/>
+    <button onclick="addToList()">Add to List</button>
+    <button onclick="deleteFromList()">Delete from List</button>
+    <button onclick="markComplete()">Mark item as Complete</button>
+    <hr/>
+    <input type="text" id="oldtxt" placeholder="Enter old text"/>
+    <input type="text" id="newtxt" placeholder="Enter new text"/>
+    <button onclick="changeText()">Change entry</button>
+    <hr/>
+    <ul id="myUL">
+        <li>Pay the bills</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Query Selector Testing</title>
+    <script>
+        function handleClick(){
+            var x = document.querySelector("p");
+            var y = document.querySelectorAll("p");
+            var i;
+            x.style.color="white";
+            for(i=0;i<y.length;i++){
+                y[i].style.backgroundColor="green";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>This is Demo 3</h1>
+    <p>This is first para</p>
+    <p>This is second para</p>
+    <button onclick="handleClick()">Click Me</button>
+</body>
+</html>
